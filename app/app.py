@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 
 app = Flask(__name__)
-app.secret_key = 'rahasia123'  # Ganti dengan yang aman di versi produksi
+app.secret_key = os.environ.get('SECRET_KEY', 'default_key')
+file_id = os.environ.get('EXCEL_FILE_ID')
 
 # 📁 Konfigurasi folder upload
 app.config['UPLOAD_FOLDER'] = os.path.abspath(os.path.join('static', 'uploads'))
@@ -177,3 +178,4 @@ def media(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
