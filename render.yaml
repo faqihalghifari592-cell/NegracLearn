@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: negraclearn
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app.app:app
+    plan: free
+    region: singapore
+    branch: main
+    autoDeploy: true
+
